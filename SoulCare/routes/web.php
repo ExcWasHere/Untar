@@ -7,6 +7,7 @@ use App\Http\Controllers\SocialInteractionController;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\AIChatController;
 use App\Http\Controllers\AssessmentController;
+use App\Http\Controllers\EmergencyContactController;
 
 /*
 |--------------------------------------------------------------------------
