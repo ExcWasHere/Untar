@@ -21,7 +21,7 @@ use App\Http\Controllers\EmergencyContactController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Route::middleware(['auth'])->group(function () {
