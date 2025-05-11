@@ -4,97 +4,37 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
-    {
-        Schema::create('social_interactions', function (Blueprint $table) {
+return new class extends Migration {
+    public function up(): void {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('person');
-            $table->string('interaction_type');
-            $table->date('date');
-            $table->integer('duration')->nullable();
-            $table->integer('comfort_level');
-            $table->text('notes')->nullable();
-            $table->timestamps();
-        });
-
-        Schema::create('consultations', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('therapist_name');
-            $table->date('date');
-            $table->time('time');
-            $table->integer('duration')->nullable();
-            $table->text('topics')->nullable();
-            $table->text('notes')->nullable();
-            $table->date('follow_up_date')->nullable();
-            $table->string('status');
-            $table->timestamps();
-        });
-
-        Schema::create('a_i_chats', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->text('message');
-            $table->string('topic')->nullable();
-            $table->timestamps();
-        });
-
-        Schema::create('a_i_chat_replies', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('ai_chat_id')->constrained()->onDelete('cascade');
-            $table->text('message');
-            $table->boolean('is_ai');
-            $table->timestamps();
-        });
-
-        Schema::create('assessments', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('type');
-            $table->integer('score');
-            $table->string('interpretation');
-            $table->timestamps();
-        });
-
-        Schema::create('assessment_answers', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('assessment_id')->constrained()->onDelete('cascade');
-            $table->integer('question_index');
-            $table->integer('answer_value');
-            $table->timestamps();
-        });
-
-        Schema::create('emergency_contacts', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name');
-            $table->string('relationship');
-            $table->string('phone');
-            $table->string('email')->nullable();
-            $table->string('address')->nullable();
-            $table->text('notes')->nullable();
-            $table->boolean('is_primary')->default(false);
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
+        });
+
+        Schema::create('password_reset_tokens', function (Blueprint $table) {
+            $table->string('email')->primary();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
+        });
+
+        Schema::create('sessions', function (Blueprint $table) {
+            $table->string('id')->primary();
+            $table->foreignId('user_id')->nullable()->index();
+            $table->string('ip_address', 45)->nullable();
+            $table->text('user_agent')->nullable();
+            $table->longText('payload');
+            $table->integer('last_activity')->index();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('emergency_contacts');
-        Schema::dropIfExists('assessment_answers');
-        Schema::dropIfExists('assessments');
-        Schema::dropIfExists('a_i_chat_replies');
-        Schema::dropIfExists('a_i_chats');
-        Schema::dropIfExists('consultations');
-        Schema::dropIfExists('social_interactions');
+    public function down(): void {
+        Schema::dropIfExists('sessions');
+        Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('users');
     }
 };
