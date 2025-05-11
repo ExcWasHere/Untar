@@ -24,30 +24,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Authentication Routes
 Route::middleware(['auth'])->group(function () {
-    // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    
-    // Emosi Harian
     Route::resource('emotions', EmotionController::class);
-    
-    // Interaksi Sosial
     Route::resource('social-interactions', SocialInteractionController::class);
-    
-    // Konsultasi dengan Psikolog
     Route::resource('consultations', ConsultationController::class);
-    
-    // Curhat dengan AI
     Route::resource('ai-chats', AIChatController::class);
     Route::post('/ai-chats/{id}/reply', [AIChatController::class, 'getAIReply'])->name('ai-chats.reply');
-    
-    // Asesmen Kesehatan Mental
     Route::resource('assessments', AssessmentController::class);
     Route::get('/assessments/{type}/start', [AssessmentController::class, 'startAssessment'])->name('assessments.start');
     Route::post('/assessments/{type}/submit', [AssessmentController::class, 'submitAssessment'])->name('assessments.submit');
-    
-    // Emergency Contact
     Route::get('/emergency-contacts', [EmergencyContactController::class, 'index'])->name('emergency-contacts.index');
     Route::put('/emergency-contacts', [EmergencyContactController::class, 'update'])->name('emergency-contacts.update');
 });
