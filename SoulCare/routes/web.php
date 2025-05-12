@@ -21,21 +21,19 @@ use App\Http\Controllers\EmergencyContactController;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('welcome');
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('emotions', EmotionController::class);
-    Route::resource('social-interactions', SocialInteractionController::class);
-    Route::resource('consultations', ConsultationController::class);
-    Route::resource('ai-chats', AIChatController::class);
-    Route::post('/ai-chats/{id}/reply', [AIChatController::class, 'getAIReply'])->name('ai-chats.reply');
-    Route::resource('assessments', AssessmentController::class);
-    Route::get('/assessments/{type}/start', [AssessmentController::class, 'startAssessment'])->name('assessments.start');
-    Route::post('/assessments/{type}/submit', [AssessmentController::class, 'submitAssessment'])->name('assessments.submit');
-    Route::get('/emergency-contacts', [EmergencyContactController::class, 'index'])->name('emergency-contacts.index');
-    Route::put('/emergency-contacts', [EmergencyContactController::class, 'update'])->name('emergency-contacts.update');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::get('/emotions', function () {
+        return view('emotion-log');
+    })->name('emotion-log');
+    Route::get('/social-flow', function () {
+        return view('social-flow');
+    })->name('social-flow');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

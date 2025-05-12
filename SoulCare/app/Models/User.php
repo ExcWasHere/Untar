@@ -11,7 +11,10 @@ class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
-
+    public function emotions()
+    {
+        return $this->hasMany(Emotion::class);
+    }
     /**
      * The attributes that are mass assignable.
      *

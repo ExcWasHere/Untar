@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Emotion;
 use App\Models\SocialInteraction;
 use App\Models\Consultation;
@@ -12,9 +13,9 @@ use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
-    public function index()
-    {
+    public function index() {
         // Get data for current authenticated user
+        $user = Auth::user();
         $user = auth()->user();
         
         // Get emotion data for the last 7 days
@@ -91,7 +92,7 @@ class DashboardController extends Controller
             ->orderBy('assessment_date', 'desc')
             ->first();
             
-        return view('dashboard', compact(
+        /*return view('dashboard', compact(
             'averageEmotion',
             'emotionChange',
             'socialInteractions',
@@ -103,6 +104,6 @@ class DashboardController extends Controller
             'weeklyAIChats',
             'aiChatChange',
             'latestAssessment'
-        ));
+        ));*/
     }
 }

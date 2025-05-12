@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="min-h-screen bg-yellow-50">
+<div class="min-h-screen bg-white">
     <!-- Sidebar -->
     <div class="fixed inset-y-0 left-0 w-64 bg-purple-300 shadow-lg">
         <div class="flex items-center justify-center h-16 border-b border-purple-400">
@@ -9,41 +9,41 @@
         </div>
         <nav class="mt-6">
             <div class="px-4 space-y-2">
-                <a href="/" class="flex items-center px-4 py-3 text-purple-900 bg-yellow-100 rounded-lg">
+                <a href="/" class="flex items-center px-4 py-3 text-purple-900 bg-white rounded-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                     </svg>
                     <span>Dashboard</span>
                 </a>
-                <a href="/emotions" class="flex items-center px-4 py-3 text-purple-800 transition-colors rounded-lg hover:bg-yellow-100">
+                <a href="/emotions" class="flex items-center px-4 py-3 text-purple-800 transition-colors rounded-lg hover:bg-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    <span>Emosi Harian</span>
+                    <span>Emotion Log</span>
                 </a>
-                <a href="#" class="flex items-center px-4 py-3 text-purple-800 transition-colors rounded-lg hover:bg-yellow-100">
+                <a href="/social-flow" class="flex items-center px-4 py-3 text-purple-800 transition-colors rounded-lg hover:bg-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
-                    <span>Interaksi Sosial</span>
+                    <span>Social Flow</span>
                 </a>
-                <a href="#" class="flex items-center px-4 py-3 text-purple-800 transition-colors rounded-lg hover:bg-yellow-100">
+                <a href="#" class="flex items-center px-4 py-3 text-purple-800 transition-colors rounded-lg hover:bg-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                     </svg>
-                    <span>Konsultasi</span>
+                    <span>Consultation</span>
                 </a>
-                <a href="#" class="flex items-center px-4 py-3 text-purple-800 transition-colors rounded-lg hover:bg-yellow-100">
+                <a href="#" class="flex items-center px-4 py-3 text-purple-800 transition-colors rounded-lg hover:bg-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                     </svg>
-                    <span>Curhat AI</span>
+                    <span>Release your emotion</span>
                 </a>
-                <a href="#" class="flex items-center px-4 py-3 text-purple-800 transition-colors rounded-lg hover:bg-yellow-100">
+                <a href="#" class="flex items-center px-4 py-3 text-purple-800 transition-colors rounded-lg hover:bg-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                     </svg>
-                    <span>Asesmen</span>
+                    <span>Hope Scan</span>
                 </a>
             </div>
         </nav>
@@ -158,11 +158,11 @@
         <!-- Content Sections -->
         <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
             <!-- Mood Graph -->
-            <div class="p-6 bg-white rounded-lg shadow-md">
+            <div class="p-6 bg-pink-300 rounded-lg shadow-md">
                 <div class="flex items-center justify-between mb-6">
                     <h3 class="text-lg font-medium text-purple-900">Grafik Emosi 7 Hari Terakhir</h3>
                     <div class="relative">
-                        <button class="px-3 py-1 text-sm text-purple-800 bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                        <button class="px-3 py-1 text-sm text-purple-800 bg-white rounded-lg hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-purple-400">
                             7 Hari
                             <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -183,27 +183,27 @@
             </div>
 
             <!-- Social Interaction Tracker -->
-            <div class="p-6 bg-white rounded-lg shadow-md">
+            <div class="p-6 bg-purple-300 rounded-lg shadow-md">
                 <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-lg font-medium text-purple-900">Interaksi Sosial Terbaru</h3>
-                    <button class="px-3 py-1 text-sm text-pink-800 bg-pink-100 rounded-lg hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                    <h3 class="text-lg font-medium text-pink-700">Interaksi Sosial Terbaru</h3>
+                    <button class="px-3 py-1 text-sm text-pink-700 bg-white rounded-lg hover:bg-purple-200 focus:outline-none focus:ring-2 focus:ring-pink-400">
                         Tambah Baru
                     </button>
                 </div>
                 <div class="space-y-4">
-                    <div class="p-4 border border-gray-100 rounded-lg hover:bg-pink-50">
+                    <div class="p-4 border border-white rounded-lg hover:bg-white">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
                                 <div class="inline-flex items-center justify-center w-10 h-10 mr-3 bg-pink-100 rounded-full">
                                     <span class="text-pink-800 font-medium">KL</span>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-purple-900">Keluarga</h4>
-                                    <p class="text-sm text-purple-700">Makan malam bersama</p>
+                                    <h4 class="font-medium text-pink-700">Keluarga</h4>
+                                    <p class="text-sm text-pink-700">Makan malam bersama</p>
                                 </div>
                             </div>
                             <div class="text-right">
-                                <span class="text-sm text-purple-700">Kemarin</span>
+                                <span class="text-sm text-pink-700">Kemarin</span>
                                 <div class="flex mt-1">
                                     <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">
                                         Positif
@@ -215,7 +215,7 @@
                     <!-- Tambahkan interaksi sosial lainnya -->
                 </div>
                 <div class="mt-4 text-center">
-                    <a href="#" class="text-sm text-purple-600 hover:text-purple-800">Lihat semua interaksi →</a>
+                    <a href="#" class="text-sm text-pink-600 hover:text-pink-800">Lihat semua interaksi →</a>
                 </div>
             </div>
         </div>
