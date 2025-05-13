@@ -8,7 +8,324 @@
     <style>
         .flower-petal {
             transition: all 0.7s ease;
-        }
+        }import { useState, useEffect } from 'react';
+
+export default function EmotionalFlower() {
+  const [currentEmotion, setCurrentEmotion] = useState('biasa');
+  const [note, setNote] = useState('');
+  const [saveEnabled, setSaveEnabled] = useState(false);
+  const [emotionHistory, setEmotionHistory] = useState([]);
+
+  useEffect(() => {
+    // Load history from localStorage on component mount
+    const storedEmotions = localStorage.getItem('emotions');
+    if (storedEmotions) {
+      setEmotionHistory(JSON.parse(storedEmotions));
+    }
+  }, []);
+
+  const emotions = {
+    'sangat-baik': {
+      emoji: '😄',
+      label: 'Sangat Baik',
+      color: 'bg-green-100',
+      textColor: 'text-green-700',
+      hoverColor: 'hover:bg-green-200',
+      petalColor: 'bg-pink-400',
+      petalOpacity: 'opacity-100',
+      petalScale: 'scale-125',
+      stemColor: 'bg-green-600',
+      stemHeight: 'h-40',
+      stemRotate: 'rotate-0',
+      centerColor: 'bg-yellow-300',
+      leafColor: 'bg-green-400',
+      leafOpacity: 'opacity-100'
+    },
+    'baik': {
+      emoji: '🙂',
+      label: 'Baik',
+      color: 'bg-green-50',
+      textColor: 'text-green-600',
+      hoverColor: 'hover:bg-green-200',
+      petalColor: 'bg-pink-400',
+      petalOpacity: 'opacity-90',
+      petalScale: 'scale-110',
+      stemColor: 'bg-green-500',
+      stemHeight: 'h-36',
+      stemRotate: 'rotate-0',
+      centerColor: 'bg-yellow-300',
+      leafColor: 'bg-green-300',
+      leafOpacity: 'opacity-90'
+    },
+    'biasa': {
+      emoji: '😐',
+      label: 'Biasa',
+      color: 'bg-blue-50',
+      textColor: 'text-blue-600',
+      hoverColor: 'hover:bg-blue-100',
+      petalColor: 'bg-pink-300',
+      petalOpacity: 'opacity-90',
+      petalScale: 'scale-100',
+      stemColor: 'bg-green-500',
+      stemHeight: 'h-32',
+      stemRotate: 'rotate-0',
+      centerColor: 'bg-yellow-200',
+      leafColor: 'bg-green-300',
+      leafOpacity: 'opacity-90'
+    },
+    'sedih': {
+      emoji: '😔',
+      label: 'Sedih',
+      color: 'bg-yellow-50',
+      textColor: 'text-yellow-600',
+      hoverColor: 'hover:bg-yellow-100',
+      petalColor: 'bg-pink-200',
+      petalOpacity: 'opacity-80',
+      petalScale: 'scale-90',
+      stemColor: 'bg-green-600',
+      stemHeight: 'h-28',
+      stemRotate: '-rotate-3',
+      centerColor: 'bg-yellow-100',
+      leafColor: 'bg-green-300',
+      leafOpacity: 'opacity-80'
+    },
+    'cemas': {
+      emoji: '😰',
+      label: 'Cemas',
+      color: 'bg-orange-50',
+      textColor: 'text-orange-600',
+      hoverColor: 'hover:bg-orange-100',
+      petalColor: 'bg-pink-100',
+      petalOpacity: 'opacity-60',
+      petalScale: 'scale-75',
+      stemColor: 'bg-green-500',
+      stemHeight: 'h-24',
+      stemRotate: '-rotate-6',
+      centerColor: 'bg-yellow-100',
+      leafColor: 'bg-green-200',
+      leafOpacity: 'opacity-60'
+    },
+    'marah': {
+      emoji: '😡',
+      label: 'Marah',
+      color: 'bg-red-50',
+      textColor: 'text-red-600',
+      hoverColor: 'hover:bg-red-100',
+      petalColor: 'bg-pink-100',
+      petalOpacity: 'opacity-50',
+      petalScale: 'scale-75',
+      stemColor: 'bg-green-400',
+      stemHeight: 'h-20',
+      stemRotate: '-rotate-12',
+      centerColor: 'bg-yellow-100',
+      leafColor: 'bg-green-100',
+      leafOpacity: 'opacity-50'
+    }
+  };
+
+  const selectEmotion = (emotion) => {
+    setCurrentEmotion(emotion);
+    setSaveEnabled(true);
+  };
+
+  const saveEmotion = () => {
+    const now = new Date();
+    const formattedDate = `${now.getDate().toString().padStart(2, '0')}/${(now.getMonth() + 1).toString().padStart(2, '0')}/${now.getFullYear()}`;
+    const formattedTime = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+    
+    const newEmotion = {
+      id: Date.now(),
+      emotion: currentEmotion,
+      note: note,
+      date: formattedDate,
+      time: formattedTime,
+      timestamp: now.getTime()
+    };
+    
+    const updatedHistory = [newEmotion, ...emotionHistory];
+    setEmotionHistory(updatedHistory);
+    localStorage.setItem('emotions', JSON.stringify(updatedHistory));
+    
+    setNote('');
+    setSaveEnabled(false);
+    
+    // Alert could be replaced with a nicer toast notification
+    alert('Emosi berhasil disimpan!');
+  };
+
+  const deleteEmotion = (id) => {
+    if (confirm('Apakah Anda yakin ingin menghapus catatan emosi ini?')) {
+      const updatedHistory = emotionHistory.filter(item => item.id !== id);
+      setEmotionHistory(updatedHistory);
+      localStorage.setItem('emotions', JSON.stringify(updatedHistory));
+    }
+  };
+
+  const filterHistory = (days) => {
+    const now = new Date().getTime();
+    const dayInMs = 24 * 60 * 60 * 1000;
+    return emotionHistory.filter(item => (now - item.timestamp) <= days * dayInMs);
+  };
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Bunga dan Input Emosi */}
+      <div className="bg-purple-100 p-6 rounded-xl shadow-lg">
+        <h2 className="text-xl font-semibold text-purple-800 mb-4">Taman Emosi Anda</h2>
+        
+        {/* 3D Flower */}
+        <div className="flex justify-center mb-8">
+          <div className="relative w-64 h-80 perspective-1000 transform-gpu">
+            {/* Pot Bunga with 3D effect */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-16 bg-amber-700 rounded-t-lg rounded-b-xl shadow-lg z-10">
+              <div className="absolute top-0 left-0 w-full h-full bg-amber-800 opacity-30 rounded-t-lg rounded-b-xl transform skew-x-12 translate-x-3 scale-95"></div>
+            </div>
+            <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 w-40 h-6 bg-amber-800 rounded-t-3xl z-20 shadow-md"></div>
+            
+            {/* Tanah with 3D texture */}
+            <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 w-28 h-10 bg-amber-900 rounded-t-full z-30">
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-800 to-amber-950 opacity-50 rounded-t-full"></div>
+              <div className="absolute w-20 h-2 bg-amber-700 rounded-full bottom-2 left-4 opacity-40"></div>
+              <div className="absolute w-8 h-1 bg-amber-700 rounded-full bottom-5 left-10 opacity-30"></div>
+            </div>
+            
+            {/* Batang Bunga with 3D effect */}
+            <div className={`absolute bottom-20 left-1/2 transform -translate-x-1/2 w-3 ${emotions[currentEmotion].stemHeight} ${emotions[currentEmotion].stemColor} ${emotions[currentEmotion].stemRotate} transition-all duration-700 ease-in-out z-20`}>
+              {/* Stem highlight for 3D effect */}
+              <div className="absolute top-0 left-0 w-1 h-full bg-white opacity-20 rounded-l-full"></div>
+            </div>
+            
+            {/* Daun Kiri with 3D effect */}
+            <div className={`absolute bottom-40 left-1/2 transform -translate-x-12 w-12 h-8 ${emotions[currentEmotion].leafColor} ${emotions[currentEmotion].leafOpacity} rounded-full skew-x-12 transition-all duration-700 z-10 shadow-sm`}>
+              {/* Leaf vein */}
+              <div className="absolute top-1/2 left-0 w-full h-px bg-green-800 opacity-20 transform -rotate-12"></div>
+              <div className="absolute top-0 left-0 w-full h-full bg-white opacity-10 rounded-full transform scale-90"></div>
+            </div>
+            
+            {/* Daun Kanan with 3D effect */}
+            <div className={`absolute bottom-48 left-1/2 transform translate-x-4 w-12 h-8 ${emotions[currentEmotion].leafColor} ${emotions[currentEmotion].leafOpacity} rounded-full -skew-x-12 transition-all duration-700 z-30 shadow-sm`}>
+              {/* Leaf vein */}
+              <div className="absolute top-1/2 left-0 w-full h-px bg-green-800 opacity-20 transform rotate-12"></div>
+              <div className="absolute top-0 left-0 w-full h-full bg-white opacity-10 rounded-full transform scale-90"></div>
+            </div>
+            
+            {/* Bunga with 3D petals */}
+            <div className={`absolute top-6 left-1/2 transform -translate-x-1/2 transition-all duration-700 ${emotions[currentEmotion].petalScale} z-40`}>
+              {/* Kelopak Bunga with 3D effect */}
+              <div className={`absolute w-16 h-16 ${emotions[currentEmotion].petalColor} ${emotions[currentEmotion].petalOpacity} rounded-full transform -translate-x-8 -translate-y-8 transition-all duration-700 shadow-md rotate-12`}>
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white to-transparent opacity-30 rounded-full"></div>
+              </div>
+              <div className={`absolute w-16 h-16 ${emotions[currentEmotion].petalColor} ${emotions[currentEmotion].petalOpacity} rounded-full transform translate-x-8 -translate-y-8 transition-all duration-700 shadow-md -rotate-12`}>
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white to-transparent opacity-30 rounded-full"></div>
+              </div>
+              <div className={`absolute w-16 h-16 ${emotions[currentEmotion].petalColor} ${emotions[currentEmotion].petalOpacity} rounded-full transform -translate-x-8 translate-y-8 transition-all duration-700 shadow-md -rotate-12`}>
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white to-transparent opacity-30 rounded-full"></div>
+              </div>
+              <div className={`absolute w-16 h-16 ${emotions[currentEmotion].petalColor} ${emotions[currentEmotion].petalOpacity} rounded-full transform translate-x-8 translate-y-8 transition-all duration-700 shadow-md rotate-12`}>
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white to-transparent opacity-30 rounded-full"></div>
+              </div>
+              
+              {/* Pusat Bunga with 3D effect */}
+              <div className={`absolute w-10 h-10 ${emotions[currentEmotion].centerColor} rounded-full transform -translate-x-5 -translate-y-5 z-50 shadow-inner`}>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-yellow-500 rounded-full opacity-60"></div>
+                <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-yellow-100 rounded-full opacity-80"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Input Emosi */}
+        <div>
+          <h3 className="text-lg font-medium text-purple-700 mb-3">Bagaimana perasaan Anda hari ini?</h3>
+          <div className="grid grid-cols-3 gap-3">
+            {Object.entries(emotions).map(([key, emotion]) => (
+              <button 
+                key={key}
+                onClick={() => selectEmotion(key)} 
+                className={`emotion-btn flex flex-col items-center justify-center p-3 ${emotion.color} rounded-lg ${emotion.hoverColor} transform transition-all duration-300 ${currentEmotion === key ? 'ring-2 ring-offset-2 ring-purple-500 -translate-y-1' : ''}`}
+              >
+                <span className="text-2xl">{emotion.emoji}</span>
+                <span className={`text-sm font-medium ${emotion.textColor} mt-1`}>{emotion.label}</span>
+              </button>
+            ))}
+          </div>
+          
+          <div className="mt-5">
+            <label htmlFor="note" className="block text-sm font-medium text-gray-700 mb-1">Catatan (opsional)</label>
+            <textarea 
+              id="note" 
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" 
+              rows="2" 
+              placeholder="Tambahkan catatan tentang perasaan Anda..."
+            />
+            
+            <button 
+              onClick={saveEmotion}
+              disabled={!saveEnabled}
+              className={`mt-3 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-all duration-300 transform ${saveEnabled ? 'hover:-translate-y-1' : 'opacity-50'}`}
+            >
+              Simpan Emosi Hari Ini
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      {/* Riwayat Emosi */}
+      <div className="bg-purple-100 p-6 rounded-xl shadow-lg">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-semibold text-purple-800">Riwayat Emosi</h2>
+          
+          <div className="flex space-x-2">
+            <button 
+              className="px-3 py-1 text-sm bg-purple-200 text-purple-800 rounded-lg hover:bg-purple-300 transition-colors"
+              onClick={() => setEmotionHistory(filterHistory(7))}
+            >
+              7 Hari
+            </button>
+            <button 
+              className="px-3 py-1 text-sm bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-300 transition-colors"
+              onClick={() => setEmotionHistory(filterHistory(30))}
+            >
+              30 Hari
+            </button>
+          </div>
+        </div>
+        
+        <div className="space-y-3 max-h-96 overflow-y-auto p-1">
+          {emotionHistory.length === 0 ? (
+            <div className="text-center p-6 text-gray-500">Belum ada data emosi. Mulai catat emosi pertama Anda!</div>
+          ) : (
+            emotionHistory.map(item => {
+              const emotion = emotions[item.emotion];
+              return (
+                <div key={item.id} className={`p-4 ${emotion.color} rounded-lg flex items-start shadow-sm hover:translate-x-1 transition-all duration-300`}>
+                  <div className="text-2xl mr-3">{emotion.emoji}</div>
+                  <div className="flex-grow">
+                    <div className="flex justify-between items-start">
+                      <h4 className={`font-medium ${emotion.textColor}`}>{emotion.label}</h4>
+                      <span className="text-xs text-gray-500">{item.date} · {item.time}</span>
+                    </div>
+                    {item.note && <p className="text-sm text-gray-600 mt-1">{item.note}</p>}
+                  </div>
+                  <button 
+                    onClick={() => deleteEmotion(item.id)} 
+                    className="ml-2 text-gray-400 hover:text-red-500 transition-colors"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                  </button>
+                </div>
+              );
+            })
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
         
         .emotion-btn:hover {
             transform: translateY(-5px);
@@ -55,7 +372,7 @@
                     </svg>
                     <span>Social Flow</span>
                 </a>
-                <a href="#" class="flex items-center px-4 py-3 text-purple-800 transition-colors rounded-lg hover:bg-white">
+                <a href="/consultation" class="flex items-center px-4 py-3 text-purple-800 transition-colors rounded-lg hover:bg-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                     </svg>

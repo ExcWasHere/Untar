@@ -34,6 +34,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/social-flow', function () {
         return view('social-flow');
     })->name('social-flow');
+    Route::get('/consultation', function () {
+        return view('consultation');
+    })->name('consultation');
 });
 
 require __DIR__ . '/auth.php';
