@@ -37,6 +37,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/consultation', function () {
         return view('consultation');
     })->name('consultation');
+    Route::get('/release_emotion', function () {
+        return view('chat_ai');
+    })->name('release_emotion');
+    Route::get('/hope_scan', function () {
+        return view('hope_scan');
+    })->name('hope_scan');
 });
 
 require __DIR__ . '/auth.php';
