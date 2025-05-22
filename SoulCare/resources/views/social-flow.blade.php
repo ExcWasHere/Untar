@@ -121,7 +121,7 @@
                 </button>
             </div>
             <div class="space-y-4" id="interactionHistory">
-                <div class="p-4 border border-white rounded-lg hover:bg-white">
+                <div class="p-4 border border-white rounded-lg bg-white">
                     <div class="flex items-center justify-between">
                         <div>
                             <h4 class="font-medium text-purple-800">11 Mei 2025</h4>
@@ -134,7 +134,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="p-4 border border-white rounded-lg hover:bg-white">
+                <div class="p-4 border border-white rounded-lg bg-white">
                     <div class="flex items-center justify-between">
                         <div>
                             <h4 class="font-medium text-purple-800">10 Mei 2025</h4>
@@ -208,7 +208,7 @@
         
         const historyDiv = document.getElementById('interactionHistory');
         const newEntry = document.createElement('div');
-        newEntry.className = 'p-4 border border-white rounded-lg hover:bg-white';
+        newEntry.className = 'p-4 border border-white rounded-lg bg-white';
         newEntry.innerHTML = `
             <div class="flex items-center justify-between">
                 <div>

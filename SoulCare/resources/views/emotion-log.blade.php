@@ -149,7 +149,7 @@ export default function EmotionalFlower() {
     setNote('');
     setSaveEnabled(false);
     
-    // Alert could be replaced with a nicer toast notification
+    Alert could be replaced with a nicer toast notification
     alert('Emosi berhasil disimpan!');
   };
 
