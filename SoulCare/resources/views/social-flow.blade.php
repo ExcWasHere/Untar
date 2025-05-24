@@ -186,7 +186,7 @@
             result = `
                 <div>
                     <p class="text-yellow-600 font-bold text-2xl mb-2">Ambivert ⚖️</p>
-                    <p class="text-purple-800">Hai Excell!, Kamu mood mu lagi biasa aja ya?, bisa nyaman sendiri bisa sama orang lain.</p>
+                    <p class="text-purple-800">Hai Excell!, Mood mu lagi biasa aja ya?, bisa nyaman sendiri bisa sama orang lain.</p>
                 </div>
             `;
         } else {
