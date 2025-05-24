@@ -179,21 +179,21 @@
             result = `
                 <div>
                     <p class="text-green-600 font-bold text-2xl mb-2">Extrovert ✨</p>
-                    <p class="text-purple-800">Tingkat interaksimu sangat tinggi. Kamu tampaknya menikmati kebersamaan dengan orang lain!</p>
+                    <p class="text-purple-800">Hai Excell!, Tingkat interaksimu sangat tinggi, Kamu tampaknya sedang bahagia dan dalam mood yang bagus</p>
                 </div>
             `;
         } else if (count >= 4) {
             result = `
                 <div>
                     <p class="text-yellow-600 font-bold text-2xl mb-2">Ambivert ⚖️</p>
-                    <p class="text-purple-800">Kamu memiliki keseimbangan dalam berinteraksi, bisa nyaman sendiri maupun bersama orang lain.</p>
+                    <p class="text-purple-800">Hai Excell!, Kamu mood mu lagi biasa aja ya?, bisa nyaman sendiri bisa sama orang lain.</p>
                 </div>
             `;
         } else {
             result = `
                 <div>
                     <p class="text-purple-600 font-bold text-2xl mb-2">Introvert 🌙</p>
-                    <p class="text-purple-800">Kamu lebih nyaman dengan waktu sendiri. Itu tidak masalah, tetap jaga koneksi sosial sesuai kenyamananmu.</p>
+                    <p class="text-purple-800">Hai Excell!, Kamu lagi ga mood bersosialisasi ya?, Itu tidak masalah, tetap jaga koneksi sosial sesuai kenyamananmu ya.</p>
                 </div>
             `;
         }
