@@ -43,6 +43,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/hope_scan', function () {
         return view('hope_scan');
     })->name('hope_scan');
+    Route::get('/emergency-call', function () {
+        return view('emergency-call');
+    })->name('emergency-call');
 });
 
 require __DIR__ . '/auth.php';

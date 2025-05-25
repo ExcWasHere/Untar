@@ -246,7 +246,7 @@
                                         <p>Berdasarkan hasil analisis, kami merekomendasikan untuk segera melakukan konsultasi dengan konselor. Skor risiko Anda memerlukan perhatian profesional.</p>
                                     </div>
                                     <div class="mt-3">
-                                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm">Jadwalkan Sekarang</button>
+                                        <a class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm" href="/consultation">Jadwalkan Sekarang</a>
                                     </div>
                                 </div>
                             </div>
@@ -321,10 +321,10 @@
                         </div>
                         
                         <div class="mt-4">
-                            <button class="w-full bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center justify-center">
+                            <a href="/emergency-call" class="w-full bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center justify-center">
                                 <span class="mr-2">❗</span>
                                 <span>Bantuan Darurat</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
