@@ -83,64 +83,19 @@
                     <h3 class="text-lg font-medium text-purple-900">Taman Emosi Anda</h3>
                 </div>
                 
-                <!-- 3D Flower -->
+                <!-- Image Display Container -->
                 <div class="flex justify-center mb-8">
-                    <div id="flower-container" class="relative w-64 h-80 perspective-1000 transform-gpu">
-                        <!-- Pot Bunga with 3D effect -->
-                        <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-16 bg-amber-700 rounded-t-lg rounded-b-xl shadow-lg z-10">
-                            <div class="absolute top-0 left-0 w-full h-full bg-amber-800 opacity-30 rounded-t-lg rounded-b-xl transform skew-x-12 translate-x-3 scale-95"></div>
-                        </div>
-                        <div class="absolute bottom-16 left-1/2 transform -translate-x-1/2 w-40 h-6 bg-amber-800 rounded-t-3xl z-20 shadow-md"></div>
-                        
-                        <!-- Tanah with 3D texture -->
-                        <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 w-28 h-10 bg-amber-900 rounded-t-full z-30">
-                            <div class="absolute inset-0 bg-gradient-to-br from-amber-800 to-amber-950 opacity-50 rounded-t-full"></div>
-                            <div class="absolute w-20 h-2 bg-amber-700 rounded-full bottom-2 left-4 opacity-40"></div>
-                            <div class="absolute w-8 h-1 bg-amber-700 rounded-full bottom-5 left-10 opacity-30"></div>
+                    <div id="emotion-image-container" class="relative w-64 h-80 bg-white rounded-lg shadow-lg flex items-center justify-center border-2 border-dashed border-purple-400">
+                        <!-- Default placeholder -->
+                        <div id="default-placeholder" class="text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto text-purple-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <p class="text-purple-700 text-sm">Pilih emosi untuk melihat gambar</p>
                         </div>
                         
-                        <!-- Batang Bunga with 3D effect -->
-                        <div id="stem" class="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-3 h-32 bg-green-500 transition-all duration-700 ease-in-out z-20">
-                            <!-- Stem highlight for 3D effect -->
-                            <div class="absolute top-0 left-0 w-1 h-full bg-white opacity-20 rounded-l-full"></div>
-                        </div>
-                        
-                        <!-- Daun Kiri with 3D effect -->
-                        <div id="leaf-left" class="absolute bottom-40 left-1/2 transform -translate-x-12 w-12 h-8 bg-green-300 opacity-90 rounded-full skew-x-12 transition-all duration-700 z-10 shadow-sm">
-                            <!-- Leaf vein -->
-                            <div class="absolute top-1/2 left-0 w-full h-px bg-green-800 opacity-20 transform -rotate-12"></div>
-                            <div class="absolute top-0 left-0 w-full h-full bg-white opacity-10 rounded-full transform scale-90"></div>
-                        </div>
-                        
-                        <!-- Daun Kanan with 3D effect -->
-                        <div id="leaf-right" class="absolute bottom-48 left-1/2 transform translate-x-4 w-12 h-8 bg-green-300 opacity-90 rounded-full -skew-x-12 transition-all duration-700 z-30 shadow-sm">
-                            <!-- Leaf vein -->
-                            <div class="absolute top-1/2 left-0 w-full h-px bg-green-800 opacity-20 transform rotate-12"></div>
-                            <div class="absolute top-0 left-0 w-full h-full bg-white opacity-10 rounded-full transform scale-90"></div>
-                        </div>
-                        
-                        <!-- Bunga with 3D petals -->
-                        <div id="flower" class="absolute top-6 left-1/2 transform -translate-x-1/2 transition-all duration-700 scale-100 z-40">
-                            <!-- Kelopak Bunga with 3D effect -->
-                            <div id="petal-1" class="flower-petal absolute w-16 h-16 bg-pink-300 opacity-90 rounded-full transform -translate-x-8 -translate-y-8 transition-all duration-700 shadow-md rotate-12">
-                                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white to-transparent opacity-30 rounded-full"></div>
-                            </div>
-                            <div id="petal-2" class="flower-petal absolute w-16 h-16 bg-pink-300 opacity-90 rounded-full transform translate-x-8 -translate-y-8 transition-all duration-700 shadow-md -rotate-12">
-                                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white to-transparent opacity-30 rounded-full"></div>
-                            </div>
-                            <div id="petal-3" class="flower-petal absolute w-16 h-16 bg-pink-300 opacity-90 rounded-full transform -translate-x-8 translate-y-8 transition-all duration-700 shadow-md -rotate-12">
-                                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white to-transparent opacity-30 rounded-full"></div>
-                            </div>
-                            <div id="petal-4" class="flower-petal absolute w-16 h-16 bg-pink-300 opacity-90 rounded-full transform translate-x-8 translate-y-8 transition-all duration-700 shadow-md rotate-12">
-                                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white to-transparent opacity-30 rounded-full"></div>
-                            </div>
-                            
-                            <!-- Pusat Bunga with 3D effect -->
-                            <div id="flower-center" class="absolute w-10 h-10 bg-yellow-200 rounded-full transform -translate-x-5 -translate-y-5 z-50 shadow-inner">
-                                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-yellow-500 rounded-full opacity-60"></div>
-                                <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-yellow-100 rounded-full opacity-80"></div>
-                            </div>
-                        </div>
+                        <!-- Emotion image display -->
+                        <img id="emotion-image" src="" alt="Emotion Image" class="w-full h-full object-cover rounded-lg hidden transition-all duration-500 ease-in-out">
                     </div>
                 </div>
 
@@ -246,10 +201,6 @@
 </div>
 
 <style>
-    .flower-petal {
-        transition: all 0.7s ease;
-    }
-    
     .emotion-btn:hover {
         transform: translateY(-5px);
     }
@@ -269,6 +220,21 @@
         background-color: white;
         font-weight: 600;
     }
+
+    /* Image transition effects */
+    #emotion-image {
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+
+    #emotion-image.fade-in {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    #emotion-image.fade-out {
+        opacity: 0;
+        transform: scale(0.95);
+    }
 </style>
 
 <script>
@@ -276,22 +242,14 @@
     let emotions = [];
     let selectedEmotion = null;
     
-    // Emotion configurations
+    // Emotion configurations with image paths
     const emotionConfig = {
         'sangat-baik': {
             emoji: '😄',
             label: 'Sangat Baik',
             color: 'bg-green-100',
             textColor: 'text-green-700',
-            petalColor: 'bg-pink-400',
-            petalOpacity: 'opacity-100',
-            petalScale: 'scale-125',
-            stemColor: 'bg-green-600',
-            stemHeight: 'h-40',
-            stemRotate: 'rotate-0',
-            centerColor: 'bg-yellow-300',
-            leafColor: 'bg-green-400',
-            leafOpacity: 'opacity-100',
+            imagePath: 'good-banget.png', // Ganti dengan path gambar Anda
             status: 'Emosi Anda sangat positif! Terus pertahankan suasana hati yang baik ini. 🌟'
         },
         'baik': {
@@ -299,15 +257,7 @@
             label: 'Baik',
             color: 'bg-green-50',
             textColor: 'text-green-600',
-            petalColor: 'bg-pink-400',
-            petalOpacity: 'opacity-90',
-            petalScale: 'scale-110',
-            stemColor: 'bg-green-500',
-            stemHeight: 'h-36',
-            stemRotate: 'rotate-0',
-            centerColor: 'bg-yellow-300',
-            leafColor: 'bg-green-300',
-            leafOpacity: 'opacity-90',
+            imagePath: 'good-aja.png', // Ganti dengan path gambar Anda
             status: 'Hari Anda berjalan dengan baik. Nikmati momen-momen positif ini! 😊'
         },
         'biasa': {
@@ -315,15 +265,7 @@
             label: 'Biasa',
             color: 'bg-blue-50',
             textColor: 'text-blue-600',
-            petalColor: 'bg-pink-300',
-            petalOpacity: 'opacity-90',
-            petalScale: 'scale-100',
-            stemColor: 'bg-green-500',
-            stemHeight: 'h-32',
-            stemRotate: 'rotate-0',
-            centerColor: 'bg-yellow-200',
-            leafColor: 'bg-green-300',
-            leafOpacity: 'opacity-90',
+            imagePath: 'good.png', // Ganti dengan path gambar Anda
             status: 'Hari yang normal. Cobalah lakukan aktivitas yang Anda sukai untuk meningkatkan mood! 🌼'
         },
         'sedih': {
@@ -331,15 +273,7 @@
             label: 'Sedih',
             color: 'bg-yellow-50',
             textColor: 'text-yellow-600',
-            petalColor: 'bg-pink-200',
-            petalOpacity: 'opacity-80',
-            petalScale: 'scale-90',
-            stemColor: 'bg-green-600',
-            stemHeight: 'h-28',
-            stemRotate: '-rotate-3',
-            centerColor: 'bg-yellow-100',
-            leafColor: 'bg-green-300',
-            leafOpacity: 'opacity-80',
+            imagePath: 'bad-banget.png', // Ganti dengan path gambar Anda
             status: 'Tidak apa-apa merasa sedih. Ingatlah bahwa perasaan ini akan berlalu. Jaga diri Anda baik-baik. 💙'
         },
         'cemas': {
@@ -347,15 +281,7 @@
             label: 'Cemas',
             color: 'bg-orange-50',
             textColor: 'text-orange-600',
-            petalColor: 'bg-pink-100',
-            petalOpacity: 'opacity-60',
-            petalScale: 'scale-75',
-            stemColor: 'bg-green-500',
-            stemHeight: 'h-24',
-            stemRotate: '-rotate-6',
-            centerColor: 'bg-yellow-100',
-            leafColor: 'bg-green-200',
-            leafOpacity: 'opacity-60',
+            imagePath: 'bad.png', // Ganti dengan path gambar Anda
             status: 'Coba ambil napas dalam-dalam. Ingat bahwa Anda lebih kuat dari yang Anda kira. 🌸'
         },
         'marah': {
@@ -363,15 +289,7 @@
             label: 'Marah',
             color: 'bg-red-50',
             textColor: 'text-red-600',
-            petalColor: 'bg-pink-100',
-            petalOpacity: 'opacity-50',
-            petalScale: 'scale-75',
-            stemColor: 'bg-green-400',
-            stemHeight: 'h-20',
-            stemRotate: '-rotate-12',
-            centerColor: 'bg-yellow-100',
-            leafColor: 'bg-green-100',
-            leafOpacity: 'opacity-50',
+            imagePath: 'bad-aja.png', // Ganti dengan path gambar Anda
             status: 'Ambil waktu sejenak untuk menenangkan diri. Cobalah teknik pernapasan atau berjalan sebentar. 🍃'
         }
     };
@@ -403,40 +321,45 @@
         // Enable submit button
         document.querySelector('button[type="submit"]').disabled = false;
         
-        // Update flower appearance
-        updateFlowerAppearance(emotion);
+        // Update image display
+        updateEmotionImage(emotion);
         
         // Update emotion status
         updateEmotionStatus(emotion);
     }
 
-    // Update flower appearance based on emotion
-    function updateFlowerAppearance(emotion) {
+    // Update emotion image display
+    function updateEmotionImage(emotion) {
         const config = emotionConfig[emotion];
-        const stem = document.getElementById('stem');
-        const leafLeft = document.getElementById('leaf-left');
-        const leafRight = document.getElementById('leaf-right');
-        const flower = document.getElementById('flower');
-        const petals = document.querySelectorAll('.flower-petal');
-        const flowerCenter = document.getElementById('flower-center');
+        const emotionImage = document.getElementById('emotion-image');
+        const defaultPlaceholder = document.getElementById('default-placeholder');
         
-        // Update stem
-        stem.className = `absolute bottom-20 left-1/2 transform -translate-x-1/2 w-3 ${config.stemHeight} ${config.stemColor} ${config.stemRotate} transition-all duration-700 ease-in-out z-20`;
+        // Hide placeholder
+        defaultPlaceholder.style.display = 'none';
         
-        // Update leaves
-        leafLeft.className = `absolute bottom-40 left-1/2 transform -translate-x-12 w-12 h-8 ${config.leafColor} ${config.leafOpacity} rounded-full skew-x-12 transition-all duration-700 z-10 shadow-sm`;
-        leafRight.className = `absolute bottom-48 left-1/2 transform translate-x-4 w-12 h-8 ${config.leafColor} ${config.leafOpacity} rounded-full -skew-x-12 transition-all duration-700 z-30 shadow-sm`;
+        // Update image source and show with transition
+        emotionImage.src = config.imagePath;
+        emotionImage.alt = `Emosi ${config.label}`;
+        emotionImage.classList.remove('hidden');
         
-        // Update flower
-        flower.className = `absolute top-6 left-1/2 transform -translate-x-1/2 transition-all duration-700 ${config.petalScale} z-40`;
+        // Add fade-in effect
+        setTimeout(() => {
+            emotionImage.classList.add('fade-in');
+        }, 50);
         
-        // Update petals
-        petals.forEach(petal => {
-            petal.className = `flower-petal absolute w-16 h-16 ${config.petalColor} ${config.petalOpacity} rounded-full transform ${petal.style.transform || petal.className.includes('translate-x-8 -translate-y-8') ? 'translate-x-8 -translate-y-8' : petal.className.includes('-translate-x-8 -translate-y-8') ? '-translate-x-8 -translate-y-8' : petal.className.includes('-translate-x-8 translate-y-8') ? '-translate-x-8 translate-y-8' : 'translate-x-8 translate-y-8'} transition-all duration-700 shadow-md`;
-        });
-        
-        // Update flower center
-        flowerCenter.className = `absolute w-10 h-10 ${config.centerColor} rounded-full transform -translate-x-5 -translate-y-5 z-50 shadow-inner`;
+        // Handle image load error
+        emotionImage.onerror = function() {
+            // If image fails to load, show placeholder with error message
+            this.style.display = 'none';
+            defaultPlaceholder.style.display = 'block';
+            defaultPlaceholder.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto text-red-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p class="text-red-600 text-sm">Gambar tidak ditemukan</p>
+                <p class="text-gray-500 text-xs mt-1">Path: ${config.imagePath}</p>
+            `;
+        };
     }
 
     // Update emotion status display
@@ -500,47 +423,32 @@
         // Reset emotion status
         document.getElementById('emotionStatus').innerHTML = '<p class="text-purple-700 italic">Pilih emosi Anda untuk melihat status.</p>';
         
-        // Reset flower to default
-        updateFlowerAppearance('biasa');
+        // Reset image display
+        resetImageDisplay();
         
         // Show success message
         alert('Emosi berhasil disimpan!');
-        
-        // Add to history display
-        const today = new Date();
-        const dateStr = today.getDate() + ' ' + ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Ags', 'Sep', 'Okt', 'Nov', 'Des'][today.getMonth()] + ' ' + today.getFullYear();
-        
-        const historyDiv = document.getElementById('emotionHistory');
-        const config = emotionConfig[newEmotion.emotion];
-        
-        // Remove "no data" message if exists
-        if (historyDiv.innerHTML.includes('Belum ada data emosi')) {
-            historyDiv.innerHTML = '';
-        }
-        
-        const newEntry = document.createElement('div');
-        newEntry.className = `p-4 border border-white rounded-lg bg-white hover:transform hover:translate-x-1 transition-all duration-300`;
-        newEntry.innerHTML = `
-            <div class="flex items-start">
-                <div class="text-2xl mr-3">${config.emoji}</div>
-                <div class="flex-grow">
-                    <div class="flex justify-between items-start">
-                        <h4 class="font-medium ${config.textColor}">${config.label}</h4>
-                        <span class="text-xs text-gray-500">${newEmotion.date} · ${newEmotion.time}</span>
-                    </div>
-                    ${newEmotion.note ? `<p class="text-sm text-gray-600 mt-1">${newEmotion.note}</p>` : ''}
-                </div>
-                <button onclick="deleteEmotion(${newEmotion.id})" class="ml-2 text-gray-400 hover:text-red-500 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                    </svg>
-                </button>
-            </div>
-        `;
-        
-        // Insert at top
-        historyDiv.insertBefore(newEntry, historyDiv.firstChild);
     });
+
+    // Reset image display to default
+    function resetImageDisplay() {
+        const emotionImage = document.getElementById('emotion-image');
+        const defaultPlaceholder = document.getElementById('default-placeholder');
+        
+        emotionImage.classList.add('fade-out');
+        
+        setTimeout(() => {
+            emotionImage.classList.add('hidden');
+            emotionImage.classList.remove('fade-in', 'fade-out');
+            defaultPlaceholder.style.display = 'block';
+            defaultPlaceholder.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto text-purple-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <p class="text-purple-700 text-sm">Pilih emosi untuk melihat gambar</p>
+            `;
+        }, 250);
+    }
 
     // Render emotion history
     function renderEmotionHistory() {
@@ -568,7 +476,7 @@
                         ${item.note ? `<p class="text-sm text-gray-600 mt-1">${item.note}</p>` : ''}
                     </div>
                     <button onclick="deleteEmotion(${item.id})" class="ml-2 text-gray-400 hover:text-red-500 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
                     </button>
@@ -581,8 +489,8 @@
 
     // Delete emotion function
     function deleteEmotion(id) {
-        if (confirm('Apakah Anda yakin ingin menghapus catatan emosi ini?')) {
-            emotions = emotions.filter(item => item.id !== id);
+        if (confirm('Apakah Anda yakin ingin menghapus data emosi ini?')) {
+            emotions = emotions.filter(emotion => emotion.id !== id);
             saveEmotionsToLocalStorage();
             renderEmotionHistory();
         }
@@ -590,64 +498,173 @@
 
     // Filter history function
     function filterHistory(days) {
-        const now = new Date().getTime();
-        const dayInMs = 24 * 60 * 60 * 1000;
-        
-        // Update button states
+        // Update active filter button
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.classList.remove('active');
             btn.classList.add('bg-yellow-100');
-            btn.classList.remove('bg-white');
         });
-        
         event.currentTarget.classList.add('active');
-        event.currentTarget.classList.add('bg-white');
         event.currentTarget.classList.remove('bg-yellow-100');
         
-        // Filter emotions
-        const filteredEmotions = emotions.filter(item => (now - item.timestamp) <= days * dayInMs);
+        const currentTime = new Date().getTime();
+        const filterTime = parseInt(days) * 24 * 60 * 60 * 1000; // Convert days to milliseconds
         
-        const historyContainer = document.getElementById('emotionHistory');
-        historyContainer.innerHTML = '';
-        
-        if (filteredEmotions.length === 0) {
-            historyContainer.innerHTML = '<div class="text-center p-6 text-purple-700 italic">Tidak ada data emosi dalam periode ini.</div>';
-            return;
-        }
-        
-        filteredEmotions.forEach(item => {
-            const config = emotionConfig[item.emotion];
-            
-            const emotionElement = document.createElement('div');
-            emotionElement.className = `p-4 border border-white rounded-lg bg-white hover:transform hover:translate-x-1 transition-all duration-300`;
-            emotionElement.innerHTML = `
-                <div class="flex items-start">
-                    <div class="text-2xl mr-3">${config.emoji}</div>
-                    <div class="flex-grow">
-                        <div class="flex justify-between items-start">
-                            <h4 class="font-medium ${config.textColor}">${config.label}</h4>
-                            <span class="text-xs text-gray-500">${item.date} · ${item.time}</span>
-                        </div>
-                        ${item.note ? `<p class="text-sm text-gray-600 mt-1">${item.note}</p>` : ''}
-                    </div>
-                    <button onclick="deleteEmotion(${item.id})" class="ml-2 text-gray-400 hover:text-red-500 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                        </svg>
-                    </button>
-                </div>
-            `;
-            
-            historyContainer.appendChild(emotionElement);
+        // Filter emotions based on selected timeframe
+        const filteredEmotions = emotions.filter(emotion => {
+            return (currentTime - emotion.timestamp) <= filterTime;
         });
+        
+        // Temporarily store original emotions
+        const originalEmotions = [...emotions];
+        emotions = filteredEmotions;
+        
+        // Render filtered history
+        renderEmotionHistory();
+        
+        // Restore original emotions after 3 seconds to show filter is temporary
+        setTimeout(() => {
+            emotions = originalEmotions;
+        }, 100);
     }
 
-    // Initialize when page loads
+    // Show all emotions function (reset filter)
+    function showAllEmotions() {
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+            btn.classList.add('bg-yellow-100');
+        });
+        renderEmotionHistory();
+    }
+
+    // Initialize the application
     document.addEventListener('DOMContentLoaded', function() {
         loadEmotionsFromLocalStorage();
         
-        // Set flower to default state
-        updateFlowerAppearance('biasa');
+        // Add some sample data if no emotions exist (for demo purposes)
+        if (emotions.length === 0) {
+            const sampleEmotions = [
+                {
+                    id: Date.now() - 86400000, // 1 day ago
+                    emotion: 'baik',
+                    note: 'Hari yang produktif di kantor',
+                    date: new Date(Date.now() - 86400000).toLocaleDateString('id-ID'),
+                    time: '14:30',
+                    timestamp: Date.now() - 86400000
+                },
+                {
+                    id: Date.now() - 172800000, // 2 days ago
+                    emotion: 'sangat-baik',
+                    note: 'Berhasil menyelesaikan proyek besar!',
+                    date: new Date(Date.now() - 172800000).toLocaleDateString('id-ID'),
+                    time: '16:45',
+                    timestamp: Date.now() - 172800000
+                },
+                {
+                    id: Date.now() - 259200000, // 3 days ago
+                    emotion: 'sedih',
+                    note: 'Merasa lelah dan overwhelmed',
+                    date: new Date(Date.now() - 259200000).toLocaleDateString('id-ID'),
+                    time: '09:15',
+                    timestamp: Date.now() - 259200000
+                }
+            ];
+            
+            // Uncomment the line below to add sample data
+            // emotions = sampleEmotions;
+            // saveEmotionsToLocalStorage();
+            // renderEmotionHistory();
+        }
     });
+
+    // Add keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        // Press 1-6 to select emotions quickly
+        const emotionKeys = {
+            '1': 'sangat-baik',
+            '2': 'baik',
+            '3': 'biasa',
+            '4': 'sedih',
+            '5': 'cemas',
+            '6': 'marah'
+        };
+        
+        if (emotionKeys[e.key]) {
+            const emotionButtons = document.querySelectorAll('.emotion-btn');
+            const index = parseInt(e.key) - 1;
+            if (emotionButtons[index]) {
+                emotionButtons[index].click();
+            }
+        }
+        
+        // Press Enter to submit form when emotion is selected
+        if (e.key === 'Enter' && selectedEmotion && e.target.tagName !== 'BUTTON') {
+            e.preventDefault();
+            document.getElementById('emotionForm').dispatchEvent(new Event('submit'));
+        }
+    });
+
+    // Add smooth scrolling to history section when new emotion is added
+    function scrollToHistory() {
+        document.getElementById('emotionHistory').scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'nearest'
+        });
+    }
+
+    // Auto-save draft notes
+    let autoSaveTimeout;
+    document.getElementById('note').addEventListener('input', function(e) {
+        clearTimeout(autoSaveTimeout);
+        autoSaveTimeout = setTimeout(() => {
+            localStorage.setItem('draft_note', e.target.value);
+        }, 1000);
+    });
+
+    // Load draft note on page load
+    window.addEventListener('load', function() {
+        const draftNote = localStorage.getItem('draft_note');
+        if (draftNote) {
+            document.getElementById('note').value = draftNote;
+        }
+    });
+
+    // Clear draft when form is submitted
+    document.getElementById('emotionForm').addEventListener('submit', function() {
+        localStorage.removeItem('draft_note');
+        setTimeout(scrollToHistory, 500);
+    });
+
+    // Add notification functionality
+    function requestNotificationPermission() {
+        if ('Notification' in window && Notification.permission !== 'granted') {
+            Notification.requestPermission();
+        }
+    }
+
+    // Daily reminder notification
+    function setDailyReminder() {
+        if ('Notification' in window && Notification.permission === 'granted') {
+            // Check if user has logged emotion today
+            const today = new Date().toDateString();
+            const todayEmotions = emotions.filter(emotion => {
+                const emotionDate = new Date(emotion.timestamp).toDateString();
+                return emotionDate === today;
+            });
+
+            if (todayEmotions.length === 0) {
+                new Notification('SoulCare Reminder', {
+                    body: 'Jangan lupa catat emosi Anda hari ini! 😊',
+                    icon: '/favicon.ico'
+                });
+            }
+        }
+    }
+
+    // Set up daily reminder (every 6 hours)
+    setInterval(setDailyReminder, 6 * 60 * 60 * 1000);
+
+    // Request notification permission on first interaction
+    document.addEventListener('click', requestNotificationPermission, { once: true });
 </script>
+
 @endsection

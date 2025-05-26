@@ -247,7 +247,6 @@
         
         let currentCharacter = null;
         
-        // Character data
         const characters = {
             'supportive-friend': {
                 name: 'Sahabat Pengertian',
@@ -257,11 +256,11 @@
                 iconColor: 'text-purple-600',
                 greeting: 'Halo {{ auth()->user()->name ?? "Excell" }}, apa yang sedang kamu rasakan hari ini? Aku di sini untuk mendengarkan dan mendukungmu.',
                 responses: [
-                    "Aku mengerti perasaanmu {{ auth()->user()->name ?? "Excell" }}, Tidak apa-apa untuk merasa seperti itu.",
+                    "Aku mengerti perasaanmu {{ auth()->user()->name ?? "" }}, Tidak apa untuk merasa seperti itu.",
                     "Kamu telah melalui banyak hal, wajar jika merasa begitu. Aku di sini untukmu. Tetap semangat ya {{ auth()->user()->name ?? 'Excell' }}!",
-                    "Terima kasih sudah berbagi denganku {{ auth()->user()->name ?? "Excell" }}, Bagaimana aku bisa membantumu lebih lanjut?",
-                    "Kamu sangat berani bisa menghadapi semua ini {{ auth()->user()->name ?? "Excell" }}, Aku bangga padamu.",
-                    "Kadang kita semua butuh seseorang untuk mendengarkan, Aku senang bisa jadi orang itu untuk {{ auth()->user()->name ?? "Excell" }}."
+                    "Terima kasih sudah mau bercerita {{ auth()->user()->name ?? "" }}, Bagaimana aku bisa membantumu lebih lanjut?",
+                    "Kamu sangat hebat bisa menghadapi semua ini {{ auth()->user()->name ?? "" }}, Aku bangga padamu.",
+                    "Kadang kita semua butuh seseorang untuk mendengarkan, Aku senang bisa jadi orang itu untuk mu {{ auth()->user()->name ?? "" }}."
                 ]
             },
             'motivator': {

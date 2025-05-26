@@ -553,3 +553,211 @@
                     
                     <!-- Psychologist Card 4 -->
                     <div class="psych-item bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <div class="p-6">
+                            <div class="flex items-start">
+                                <img src="/api/placeholder/100/100" class="w-16 h-16 rounded-full object-cover" alt="Psychologist">
+                                <div class="ml-4 flex-1">
+                                    <div class="flex justify-between">
+                                        <h3 class="psych-name text-lg font-semibold text-gray-800">Dr. Dian Permata, M.Psi</h3>
+                                        <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs">Online</span>
+                                    </div>
+                                    <div class="flex items-center mt-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span class="ml-1 text-gray-700">4.6</span>
+                                        <span class="ml-1 text-gray-500">(87 ulasan)</span>
+                                    </div>
+                                    <p class="psych-address text-gray-600 text-sm mt-1">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>
+                                        Jl. Sudirman No. 56, Jakarta Pusat
+                                    </p>
+                                    <div class="mt-2 flex flex-wrap gap-1">
+                                        <span class="specialty px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs">Pernikahan</span>
+                                        <span class="specialty px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs">Trauma Masa Kecil</span>
+                                        <span class="specialty px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs">Parenting</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-500">Pengalaman: 7 tahun</p>
+                                    <p class="text-sm font-medium text-purple-700">Rp325.000/sesi</p>
+                                </div>
+                                <button onclick="showPsychologistDetail(4)" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors">
+                                    Lihat Detail
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Psychologist Card 5 -->
+                    <div class="psych-item bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <div class="p-6">
+                            <div class="flex items-start">
+                                <img src="/api/placeholder/100/100" class="w-16 h-16 rounded-full object-cover" alt="Psychologist">
+                                <div class="ml-4 flex-1">
+                                    <div class="flex justify-between">
+                                        <h3 class="psych-name text-lg font-semibold text-gray-800">Dr. Eko Prasetyo, Psi</h3>
+                                        <span class="inline-flex items-center px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs">Offline</span>
+                                    </div>
+                                    <div class="flex items-center mt-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span class="ml-1 text-gray-700">4.9</span>
+                                        <span class="ml-1 text-gray-500">(134 ulasan)</span>
+                                    </div>
+                                    <p class="psych-address text-gray-600 text-sm mt-1">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>
+                                        Jl. Thamrin No. 29, Medan
+                                    </p>
+                                    <div class="mt-2 flex flex-wrap gap-1">
+                                        <span class="specialty px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs">Krisis Identitas</span>
+                                        <span class="specialty px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs">Bullying</span>
+                                        <span class="specialty px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs">Social Anxiety</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-500">Pengalaman: 15 tahun</p>
+                                    <p class="text-sm font-medium text-purple-700">Rp400.000/sesi</p>
+                                </div>
+                                <button onclick="showPsychologistDetail(5)" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors">
+                                    Lihat Detail
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Psychologist Detail View -->
+            <div id="psychologist-detail" class="hidden">
+                <div class="mb-4">
+                    <button onclick="backToList()" class="flex items-center text-purple-600 hover:text-purple-700">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        Kembali ke Daftar Psikolog
+                    </button>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-8">
+                        <div class="flex items-start">
+                            <img id="detail-photo" src="" class="w-24 h-24 rounded-full object-cover" alt="Psychologist">
+                            <div class="ml-6 flex-1">
+                                <div class="flex items-center justify-between">
+                                    <h2 id="detail-name" class="text-2xl font-bold text-gray-800"></h2>
+                                    <span id="online-status" class="px-3 py-1 rounded-full text-sm"></span>
+                                </div>
+                                <div class="flex items-center mt-2">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span id="detail-rating" class="ml-2 text-lg font-semibold text-gray-700"></span>
+                                    <span class="ml-2 text-gray-500">(<span id="detail-review-count"></span> ulasan)</span>
+                                </div>
+                                <p id="detail-address" class="text-gray-600 mt-2">
+                                    <i class="fas fa-map-marker-alt mr-2"></i>
+                                </p>
+                                <div id="detail-specialties" class="mt-3 flex flex-wrap gap-2">
+                                    <!-- Specialties will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                            <div class="bg-purple-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-purple-800 mb-2">Pengalaman</h4>
+                                <p id="detail-experience" class="text-gray-700"></p>
+                            </div>
+                            <div class="bg-purple-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-purple-800 mb-2">Ketersediaan</h4>
+                                <span id="detail-availability" class="px-2 py-1 rounded-full text-sm"></span>
+                            </div>
+                            <div class="bg-purple-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-purple-800 mb-2">Tarif</h4>
+                                <p id="detail-price" class="text-gray-700 font-semibold"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-gray-800 mb-4">Tentang Psikolog</h4>
+                            <p class="text-gray-600 leading-relaxed">
+                                Seorang psikolog berpengalaman yang telah membantu ratusan klien mengatasi berbagai masalah mental dan emosional. 
+                                Menggunakan pendekatan terapi yang personal dan disesuaikan dengan kebutuhan masing-masing klien.
+                            </p>
+                        </div>
+                        
+                        <div class="mt-8 flex space-x-4">
+                            <button onclick="startChat(1)" class="flex-1 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-colors">
+                                <i class="fas fa-comments mr-2"></i>
+                                Mulai Konsultasi
+                            </button>
+                            <button class="px-6 py-3 border border-purple-600 text-purple-600 hover:bg-purple-50 rounded-lg font-semibold transition-colors">
+                                <i class="fas fa-heart mr-2"></i>
+                                Simpan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat Interface -->
+            <div id="psych-chat" class="hidden">
+                <div class="flex flex-col h-screen max-h-screen">
+                    <!-- Chat Header -->
+                    <div class="bg-white shadow-sm border-b border-gray-200 p-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <button onclick="backToDetail()" class="mr-4 text-purple-600 hover:text-purple-700">
+                                    <i class="fas fa-arrow-left"></i>
+                                </button>
+                                <img id="chat-psych-photo" src="" class="w-10 h-10 rounded-full object-cover" alt="Psychologist">
+                                <div class="ml-3">
+                                    <h3 id="chat-psych-name" class="font-semibold text-gray-800"></h3>
+                                    <p class="text-sm text-green-600">Online</p>
+                                </div>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button class="p-2 text-gray-500 hover:text-gray-700">
+                                    <i class="fas fa-phone"></i>
+                                </button>
+                                <button class="p-2 text-gray-500 hover:text-gray-700">
+                                    <i class="fas fa-video"></i>
+                                </button>
+                                <button class="p-2 text-gray-500 hover:text-gray-700">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Messages -->
+                    <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+                        <!-- Messages will be populated by JavaScript -->
+                    </div>
+                    
+                    <!-- Chat Input -->
+                    <div class="bg-white border-t border-gray-200 p-4">
+                        <div class="flex items-center space-x-2">
+                            <button class="p-2 text-gray-500 hover:text-gray-700 rounded-full hover:bg-gray-100">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                            <div class="flex-1 relative">
+                                <input 
+                                    type="text" 
+                                    id="message-input" 
+                                    class="w-full py-3 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" 
+                                    placeholder="Ketik pesan Anda..."
+                                >
+                            </div>
+                            <button 
+                                id="send-button" 
+                                class="p-3 bg-purple-600 hover:bg-purple-700 text-white rounded-full transition-colors"
+                            >
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
