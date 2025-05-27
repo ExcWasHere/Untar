@@ -54,7 +54,7 @@
         <!-- Header -->
         <div class="flex items-center justify-between mb-8">
             <div>
-                <h1 class="text-3xl font-bold text-purple-900">Emotion Log</h1>
+                <h1 class="text-3xl font-bold text-purple-900">Emotion Snacks</h1>
                 <p class="text-purple-700">Pantau dan catat perasaanmu setiap hari</p>
             </div>
             <div class="flex items-center space-x-4">
@@ -85,7 +85,7 @@
                 
                 <!-- Image Display Container -->
                 <div class="flex justify-center mb-8">
-                    <div id="emotion-image-container" class="relative w-64 h-80 bg-white rounded-lg shadow-lg flex items-center justify-center border-2 border-dashed border-purple-400">
+                    <div id="emotion-image-container" class="relative w-64 h-80 bg-transparent rounded-lg shadow-lg flex items-center justify-center border-2 border-dashed border-purple-400">
                         <!-- Default placeholder -->
                         <div id="default-placeholder" class="text-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto text-purple-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -249,48 +249,48 @@
             label: 'Sangat Baik',
             color: 'bg-green-100',
             textColor: 'text-green-700',
-            imagePath: 'good-banget.png', // Ganti dengan path gambar Anda
-            status: 'Emosi Anda sangat positif! Terus pertahankan suasana hati yang baik ini. 🌟'
+            imagePath: 'sanbgat-baik.png',
+            status: 'Cupcake Stroberi datang membawa pesta! Harimu manis banget, kayak kamu! Terus sebarkan rasa bahagia ini ke sekitarmu, ya! 🌟'
         },
         'baik': {
             emoji: '🙂',
             label: 'Baik',
             color: 'bg-green-50',
             textColor: 'text-green-600',
-            imagePath: 'good-aja.png', // Ganti dengan path gambar Anda
-            status: 'Hari Anda berjalan dengan baik. Nikmati momen-momen positif ini! 😊'
+            imagePath: 'baik.png',
+            status: 'Hari ini enak banget! Nikmati momen-momen kecil yang bikin harimu spesial. 😊'
         },
         'biasa': {
             emoji: '😐',
             label: 'Biasa',
             color: 'bg-blue-50',
             textColor: 'text-blue-600',
-            imagePath: 'good.png', // Ganti dengan path gambar Anda
-            status: 'Hari yang normal. Cobalah lakukan aktivitas yang Anda sukai untuk meningkatkan mood! 🌼'
+            imagePath: 'biasa.png',
+            status: 'Nggak harus luar biasa kok, yang penting kamu tetap jalan terus. Tenang aja, hari biasa juga tetap berharga. 🌼'
         },
         'sedih': {
             emoji: '😔',
             label: 'Sedih',
             color: 'bg-yellow-50',
             textColor: 'text-yellow-600',
-            imagePath: 'bad-banget.png', // Ganti dengan path gambar Anda
-            status: 'Tidak apa-apa merasa sedih. Ingatlah bahwa perasaan ini akan berlalu. Jaga diri Anda baik-baik. 💙'
+            imagePath: 'sedih.png',
+            status: 'Kopi merah hadir buat nemenin kamu...  Kadang perasaan turun, tapi itu bukan akhir cerita. Yuk, istirahat sejenak. Kamu nggak sendiri. 💙'
         },
         'cemas': {
             emoji: '😰',
             label: 'Cemas',
             color: 'bg-orange-50',
             textColor: 'text-orange-600',
-            imagePath: 'bad.png', // Ganti dengan path gambar Anda
-            status: 'Coba ambil napas dalam-dalam. Ingat bahwa Anda lebih kuat dari yang Anda kira. 🌸'
+            imagePath: 'cemas.png',
+            status: 'Pelan-pelan, ya... semua akan baik-baik saja. Tarik napas dalam, dan minum segelas ketenangan. 🌸'
         },
         'marah': {
             emoji: '😡',
             label: 'Marah',
             color: 'bg-red-50',
             textColor: 'text-red-600',
-            imagePath: 'bad-aja.png', // Ganti dengan path gambar Anda
-            status: 'Ambil waktu sejenak untuk menenangkan diri. Cobalah teknik pernapasan atau berjalan sebentar. 🍃'
+            imagePath: 'marah.png',
+            status: 'Lampiasin marahmu lewat hal-hal positif! Gerak dikit, tarik napas, kamu pasti bisa atur emosimu dengan keren. 🍃'
         }
     };
 
